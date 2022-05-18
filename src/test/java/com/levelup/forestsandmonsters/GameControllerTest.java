@@ -7,7 +7,8 @@ public class GameControllerTest {
     @Test
     public void InitializationCreatesResults() {
         GameController testObj = new GameController();
+        system.out.println("hi Ninja");
         assertNotNull(testObj.status);
-        
+
     }
 }
