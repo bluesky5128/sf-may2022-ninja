@@ -8,5 +8,6 @@ public class GameControllerTest {
     public void InitializationCreatesResults() {
         GameController testObj = new GameController();
         assertNotNull(testObj.status);
+        
     }
 }
