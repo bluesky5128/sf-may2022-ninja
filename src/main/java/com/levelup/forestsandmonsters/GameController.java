@@ -20,7 +20,7 @@ public class GameController {
 
     // TODO: Ensure this AND CLI commands match domain model
     public static enum DIRECTION {
-        NORTH, SOUTH, EAST, WEST
+        UP, DOWN, LEFT, RIGHT;
     }
 
     // Pre-implemented to demonstrate ATDD
