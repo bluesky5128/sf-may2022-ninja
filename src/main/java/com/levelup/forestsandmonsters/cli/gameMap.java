@@ -40,24 +40,10 @@ public void gameMove(String direction, PlayerCharacter character){
 public Boolean isPositionValid(Position position){
     int x=position.getX();
     int y=position.getY();
-    if (x> sizeMin && x< sizeMax && y> sizeMin && y<sizeMax){
+    if (x>= sizeMin && x<= sizeMax && y>= sizeMin && y<=sizeMax){
         return true;
     }    
-    else 
-        {return false;
-        }
-}
-
-public Boolean isPositionByEdge(Position position){
-    int x=position.getX();
-    int y=position.getY();
-    if(x == sizeMin || x == sizeMax){
-        return true;
-    }
-    if(y == sizeMin || y == sizeMax){
-        return true;
-    }
-    return false;
+    else {return false;}
 }
 
 
