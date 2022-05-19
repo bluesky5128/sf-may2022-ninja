@@ -2,7 +2,7 @@
 .DEFAULT_GOAL := help
 
 help:
-	echo "Primary goals are build, run, test, verify. 'make run' to execute"
+	echo "Primary goals runare build, run, test, verify. 'make run' to execute"
 
 bootstrap:
 	echo "'Bootstrap' currently has not steps"

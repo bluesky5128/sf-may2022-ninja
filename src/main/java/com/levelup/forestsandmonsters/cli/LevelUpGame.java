@@ -42,47 +42,47 @@ public class LevelUpGame implements Quit.Command {
     gameController.startGame();
     // TODO: Update this prompt. Also, do you want to get the game status and tell
     // the player where their character is?
-    System.out.println("Welcome to Forests and Monsters! You have entered a mysterious place.");
-    System.out.println("Would you like to go North(N), South(S), East(E), West(W) or Exit(X)?");
+    System.out.println("Welcome to the step-up game, Ninja!! You have entered a mysterious place.");
+    System.out.println("Would you like to go Up(U/u), Down(D/d), Right(R,r), Left(L/l) or Exit(X/x)?");
   }
 
-  @ShellMethod(value = "Move North", key = { "N", "n" }, group = "Move")
+  @ShellMethod(value = "Move Up", key = { "U", "u" }, group = "Move")
   @ShellMethodAvailability("startedCheck")
   public void moveNorth() {
-    gameController.move(GameController.DIRECTION.NORTH);
+    gameController.move("u");
     updateStatus(gameController.getStatus());
   }
 
-  @ShellMethod(value = "Move South", key = { "S", "s" }, group = "Move")
+  @ShellMethod(value = "Move Down", key = { "D", "d" }, group = "Move")
   @ShellMethodAvailability("startedCheck")
   public void moveSouth() {
-    gameController.move(GameController.DIRECTION.SOUTH);
+    gameController.move("d");
     updateStatus(gameController.getStatus());
   }
 
-  @ShellMethod(value = "Move East", key = { "E", "e" }, group = "Move")
+  @ShellMethod(value = "Move Right", key = { "R", "r" }, group = "Move")
   @ShellMethodAvailability("startedCheck")
   public void moveEast() {
-    gameController.move(GameController.DIRECTION.EAST);
+    gameController.move("r");
     updateStatus(gameController.getStatus());
   }
 
-  @ShellMethod(value = "Move West", key = { "W", "w" }, group = "Move")
+  @ShellMethod(value = "Move Left", key = { "L", "l" }, group = "Move")
   @ShellMethodAvailability("startedCheck")
   public void moveWest() {
-    gameController.move(GameController.DIRECTION.WEST);
+    gameController.move("l");
     updateStatus(gameController.getStatus());
   }
 
   @ShellMethod(value = "End the game", key = { "X", "x" })
   public void endGame() {
-    System.out.println("You exit the mysterious world.");
+    System.out.println("You are  existing the Ninja world.");
     printSummary();
     System.exit(0);
   }
 
   private void printSummary() {
-    System.out.println("Exiting the mysterious land!");
+    System.out.println("Exiting the Ninja land!");
     for (GameStatus status : gameHistory) {
       // TODO: Override toString on game status to print pretty
       System.out.println(status);
