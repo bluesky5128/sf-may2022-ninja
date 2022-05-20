@@ -7,6 +7,8 @@ public class Position {
     public int y;
     int sizeMax = 9;
     int sizeMin = 0;
+    int didNotMove = 0;
+    int moveOneStep = 1;
 public Position(){
     x = 0;
     y= 0;
@@ -31,7 +33,7 @@ public void setCoordinate(int x, int y){
     this.x = x;
     this.y = y;
 };
-public void generateStartPosition(){
+public Position generateStartPosition(){
     int min = 0;
     int max = 9;
     /*Random random = new Random();
@@ -42,45 +44,51 @@ public void generateStartPosition(){
     System.out.println ("Im here now4:" + + x + " " + y);*/
     setX(5);
     setY(5);
-
+    return this;
 }
 
-public void moveUp(){
+public int moveUp(){
     if( x == sizeMin){
         System.out.println ("Cannot move up any further");
-        return;
+        return didNotMove;
     }
     x = x-1;
     System.out.println ("You moved up.");
     System.out.println ("Your current position is:" + x + ' ' + y);
+    return moveOneStep;
 };
 
-public void moveDown(){
-    if( y == sizeMax){
+public int moveDown(){
+    if( x == sizeMax){
         System.out.println ("Cannot move down any further");
-        return;
+        return didNotMove;
     }
     x = x+1;
     System.out.println ("You moved down.");
     System.out.println ("Your current position is:" + x + ' ' + y);
+    return moveOneStep;
 };
-public void moveRight(){
+public int moveRight(){
     if( y == sizeMax){
         System.out.println ("Cannot move right any further");
-        return;
+        return didNotMove;
     }
     y = y+1;
     System.out.println ("You moved right.");
     System.out.println ("Your current position is:" + x + ' ' + y);
+    return moveOneStep;
 };
-public void moveLeft(){
+public int moveLeft(){
     if( y == sizeMin){
         System.out.println ("Cannot move left any further");
-        return;
+        return didNotMove;
     }
     y = y-1;
     System.out.println ("You moved left.");
     System.out.println ("Your current position is:" + x + ' ' + y);
+    return moveOneStep;
+}
+public void setStartPosition() {
 };
 
 }

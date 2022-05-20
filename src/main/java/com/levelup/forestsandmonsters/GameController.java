@@ -4,6 +4,7 @@ import java.awt.Point;
 
 import com.levelup.forestsandmonsters.cli.gameMap;
 import com.levelup.forestsandmonsters.cli.PlayerCharacter;
+import com.levelup.forestsandmonsters.cli.Position;
 
 public class GameController {
     // TODO: If your stakeholder wants to call this CHARACTER, change var name for
@@ -18,6 +19,8 @@ public class GameController {
     GameStatus status;
     PlayerCharacter character = new PlayerCharacter(DEFAULT_PLAYER_NAME);
     gameMap gameMap = new gameMap();
+    int totalMoveCount = 0;
+    Position startPosition;
 
     public GameController() {
       // System.out.println ("Your default name:" + DEFAULT_PLAYER_NAME);
@@ -36,12 +39,10 @@ public class GameController {
         if (name != null && !name.equals("")) {
             status.playerName = name;
             character.setName(name);
+            startPosition.setStartPosition();
         } else {
             status.playerName = DEFAULT_PLAYER_NAME;
         }
-        System.out.println("your name is:" + name);
-
-
     }
 
     public void startGame() {
@@ -54,10 +55,27 @@ public class GameController {
         return this.status;
     }
 
+    public int getTotalMoveCount(){
+        return totalMoveCount;
+    }
+
+    public Position getStartPosition(){
+        return startPosition;
+    }
+    public void setStartPosition(){
+        startPosition.setCoordinate(character.getPosition().getX(),character.getPosition().getY());
+    }
+
+    public PlayerCharacter getPlayerCharacter(){
+        return character;
+    }
+
     public void move(String directionToMove) {
         // TODO: Implement move - should call something on another class
         // TODO: Should probably also update the game results
-        gameMap.gameMove(directionToMove, character);
+       totalMoveCount = gameMap.gameMove(directionToMove, character);
+       System.out.println("current move count: " + totalMoveCount);
     }
+
 
 }

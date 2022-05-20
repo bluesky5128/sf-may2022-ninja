@@ -4,36 +4,35 @@ import java.util.Random;
 public class gameMap {
 public int sizeMax;
 public int sizeMin;
-public int totalMoveCount;
+public int totalMoveCount = 0;
 
 public gameMap(){
     sizeMax = 9;
     sizeMin=0;
-    totalMoveCount=0;
 }
 
-public void gameMove(String direction, PlayerCharacter character){
+public int gameMove(String direction, PlayerCharacter character){
     Position position = character.getPosition();
     if(isPositionValid(position)){
         switch(direction){
             case "U":
             case "u":
-                position.moveUp();
+                totalMoveCount += position.moveUp();
                 break;
             case "D":
             case "d":
-                position.moveDown();
+                totalMoveCount +=position.moveDown();
                 break;
             case "L":
             case "l":
-                position.moveLeft();
+                totalMoveCount +=position.moveLeft();
                 break;
             case "R":
             case "r":
                 position.moveRight();
              }
-        totalMoveCount++;   
         }
+        return totalMoveCount;
     }
 
 

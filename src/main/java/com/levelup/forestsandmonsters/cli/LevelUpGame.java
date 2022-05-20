@@ -19,6 +19,8 @@ public class LevelUpGame implements Quit.Command {
   private final GameController gameController;
   private List<GameStatus> gameHistory;
   private boolean isGameStarted = false;
+  private int totalMoveCount = 0;
+  
 
   public LevelUpGame() {
     super();
@@ -82,7 +84,13 @@ public class LevelUpGame implements Quit.Command {
   }
 
   private void printSummary() {
-   // System.out.println("You moved: " + totalMoveCount + " times");
+    totalMoveCount = gameController.getTotalMoveCount();
+   // Position startingGamePosition = gameController.getStartPosition();
+ //   Position endPosition = gameController.getPlayerCharacter().getPosition();
+    System.out.println("************ Game Summary ***************");
+   // System.out.println("Your starting position:" + startingGamePosition.getX() + ", " + startingGamePosition.getY());
+  //  System.out.println("Your end position:" + endPosition.getX() + ", " + endPosition.getY());
+    System.out.println("You moved: " + totalMoveCount + " times during this game.");
     System.out.println("Exiting the Ninja land....Thank you for playing!");
     for (GameStatus status : gameHistory) {
       // TODO: Override toString on game status to print pretty
