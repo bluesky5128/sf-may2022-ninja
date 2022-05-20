@@ -17,15 +17,15 @@ public class GameController {
     }
 
     GameStatus status;
-    PlayerCharacter character = new PlayerCharacter(DEFAULT_PLAYER_NAME);
+    PlayerCharacter character;
     gameMap gameMap = new gameMap();
     int totalMoveCount = 0;
-    Position startPosition;
+    static Position startPosition;
 
     public GameController() {
       // System.out.println ("Your default name:" + DEFAULT_PLAYER_NAME);
         status = new GameStatus();
-        
+        character = new PlayerCharacter(DEFAULT_PLAYER_NAME);
     }
 
     // TODO: Ensure this AND CLI commands match domain model
@@ -39,10 +39,11 @@ public class GameController {
         if (name != null && !name.equals("")) {
             status.playerName = name;
             character.setName(name);
-           // startPosition.setStartPosition();
         } else {
             status.playerName = DEFAULT_PLAYER_NAME;
         }
+        gameMap.printGrid(character);
+        System.out.println("Your character starts at [5,5]");
     }
 
     public void startGame() {
@@ -62,18 +63,22 @@ public class GameController {
     public Position getStartPosition(){
         return startPosition;
     }
-    public void setStartPosition(){
-        startPosition.setCoordinate(character.getPosition().getX(),character.getPosition().getY());
-    }
-
+   
     public PlayerCharacter getPlayerCharacter(){
         return character;
     }
 
+
     public void move(String directionToMove) {
         // TODO: Implement move - should call something on another class
         // TODO: Should probably also update the game results
-       totalMoveCount = gameMap.gameMove(directionToMove, character);
+       if(totalMoveCount ==0){
+        startPosition = character.getPosition();
+       }
+       character = gameMap.gameMove(directionToMove, character);
+       gameMap.printGrid(character);
+       
+       totalMoveCount = gameMap.getTotalMoveCount();
        System.out.println("current move count: " + totalMoveCount);
     }
 

@@ -35,6 +35,7 @@ public class LevelUpGame implements Quit.Command {
     GameStatus status = gameController.getStatus();
 
     System.out.println("Your character, " + status.playerName + " is created!");
+        
   }
 
   @ShellMethodAvailability("notStartedCheck")
@@ -44,7 +45,7 @@ public class LevelUpGame implements Quit.Command {
     gameController.startGame();
     // TODO: Update this prompt. Also, do you want to get the game status and tell
     // the player where their character is?
-    System.out.println("Welcome to the step-up game, Ninja!! You have entered a mysterious place.");
+    System.out.println("Welcome to the step-up game! You have entered a mysterious place.");
     System.out.println("Would you like to go Up(U/u), Down(D/d), Right(R,r), Left(L/l) or Exit(X/x)?");
   }
 
@@ -85,10 +86,10 @@ public class LevelUpGame implements Quit.Command {
 
   private void printSummary() {
     totalMoveCount = gameController.getTotalMoveCount();
-   // Position startingGamePosition = gameController.getStartPosition();
- //   Position endPosition = gameController.getPlayerCharacter().getPosition();
+    Position endPosition = gameController.getPlayerCharacter().getPosition();
     System.out.println("************ Game Summary ***************");
-   // System.out.println("Your starting position:" + startingGamePosition.getX() + ", " + startingGamePosition.getY());
+    System.out.println("Your starting position:" + 5 + ", " + 5);
+    System.out.println("Your ending position:" + endPosition.getX() + ", " + endPosition.getY());
   //  System.out.println("Your end position:" + endPosition.getX() + ", " + endPosition.getY());
     System.out.println("You moved: " + totalMoveCount + " times during this game.");
     System.out.println("Exiting the Ninja land....Thank you for playing!");

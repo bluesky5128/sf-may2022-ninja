@@ -15,6 +15,7 @@ public Position(){
 public Boolean getIsPlayerMoved(){
     return isPlayerMoved;
 }
+
 public int getX(){
     return x;
 };

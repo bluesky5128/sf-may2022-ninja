@@ -6,7 +6,6 @@ public class PlayerCharacter {
 
 public PlayerCharacter(String inputName){
     name = inputName;
-    System.out.println ("Your name:" + name);
     position.generateStartPosition();
 }
 public String getName(){ 
