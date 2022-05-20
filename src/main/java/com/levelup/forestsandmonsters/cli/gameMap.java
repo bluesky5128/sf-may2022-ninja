@@ -10,6 +10,9 @@ public gameMap(){
     sizeMax = 9;
     sizeMin=0;
 }
+public int getTotalMoveCount(){
+    return totalMoveCount;
+}
 
 public int gameMove(String direction, PlayerCharacter character){
     Position position = character.getPosition();
@@ -17,22 +20,25 @@ public int gameMove(String direction, PlayerCharacter character){
         switch(direction){
             case "U":
             case "u":
-                totalMoveCount += position.moveUp();
+                position.moveUp();
                 break;
             case "D":
             case "d":
-                totalMoveCount +=position.moveDown();
+                position.moveDown();
                 break;
             case "L":
             case "l":
-                totalMoveCount +=position.moveLeft();
+                position.moveLeft();
                 break;
             case "R":
             case "r":
                 position.moveRight();
              }
         }
-        return totalMoveCount;
+        if(position.getIsPlayerMoved()){
+            totalMoveCount++;
+        }
+        return character
     }
 
 

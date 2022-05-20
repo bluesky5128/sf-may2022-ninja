@@ -39,7 +39,7 @@ public class GameController {
         if (name != null && !name.equals("")) {
             status.playerName = name;
             character.setName(name);
-            startPosition.setStartPosition();
+           // startPosition.setStartPosition();
         } else {
             status.playerName = DEFAULT_PLAYER_NAME;
         }

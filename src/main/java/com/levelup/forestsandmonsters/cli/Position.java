@@ -7,11 +7,13 @@ public class Position {
     public int y;
     int sizeMax = 9;
     int sizeMin = 0;
-    int didNotMove = 0;
-    int moveOneStep = 1;
+    Boolean isPlayerMoved = false;
 public Position(){
     x = 0;
     y= 0;
+}
+public Boolean getIsPlayerMoved(){
+    return isPlayerMoved;
 }
 public int getX(){
     return x;
@@ -47,48 +49,50 @@ public Position generateStartPosition(){
     return this;
 }
 
-public int moveUp(){
+public void moveUp(){
     if( x == sizeMin){
         System.out.println ("Cannot move up any further");
-        return didNotMove;
+        isPlayerMoved = false;
+        return;
     }
     x = x-1;
     System.out.println ("You moved up.");
     System.out.println ("Your current position is:" + x + ' ' + y);
-    return moveOneStep;
+    isPlayerMoved = true;
 };
 
-public int moveDown(){
+public void moveDown(){
     if( x == sizeMax){
         System.out.println ("Cannot move down any further");
-        return didNotMove;
+        isPlayerMoved = false;
+        return;
     }
     x = x+1;
     System.out.println ("You moved down.");
     System.out.println ("Your current position is:" + x + ' ' + y);
-    return moveOneStep;
+    isPlayerMoved = true;
 };
-public int moveRight(){
+public void moveRight(){
     if( y == sizeMax){
         System.out.println ("Cannot move right any further");
-        return didNotMove;
+        isPlayerMoved = false;
+        return;
     }
     y = y+1;
     System.out.println ("You moved right.");
     System.out.println ("Your current position is:" + x + ' ' + y);
-    return moveOneStep;
+    isPlayerMoved = true;
 };
-public int moveLeft(){
+public void moveLeft(){
     if( y == sizeMin){
         System.out.println ("Cannot move left any further");
-        return didNotMove;
+        isPlayerMoved = false;
+        return;
     }
     y = y-1;
     System.out.println ("You moved left.");
     System.out.println ("Your current position is:" + x + ' ' + y);
-    return moveOneStep;
+    isPlayerMoved = true;
 }
-public void setStartPosition() {
-};
 
 }
