@@ -10,12 +10,12 @@ public PlayerCharacter(String inputName){
     position.generateStartPosition();
 }
 public String getName(){ 
-    System.out.println ("Im here now1:" + this.name);
+    System.out.println ("Your selected name:" + this.name);
     return name;
 }
 public void setName(String name) {
     this.name = name;
-    System.out.println ("Im here now2:" + name);
+    System.out.println ("You selected name:" + name);
 }
 
 public Position getPosition(){

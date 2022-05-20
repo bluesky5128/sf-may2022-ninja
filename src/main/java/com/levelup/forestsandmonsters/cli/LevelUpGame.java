@@ -76,13 +76,14 @@ public class LevelUpGame implements Quit.Command {
 
   @ShellMethod(value = "End the game", key = { "X", "x" })
   public void endGame() {
-    System.out.println("You are  existing the Ninja world.");
+    System.out.println("You are exiting the Ninja world.");
     printSummary();
     System.exit(0);
   }
 
   private void printSummary() {
-    System.out.println("Exiting the Ninja land!");
+   // System.out.println("You moved: " + totalMoveCount + " times");
+    System.out.println("Exiting the Ninja land....Thank you for playing!");
     for (GameStatus status : gameHistory) {
       // TODO: Override toString on game status to print pretty
       System.out.println(status);
